@@ -3,10 +3,10 @@
 
 ## Amazon Fine Food Review Dataset ##
 
-Data Source: https://www.kaggle.com/snap/amazon-fine-food-reviews
+**Data Source**: https://www.kaggle.com/snap/amazon-fine-food-reviews
 
-The Amazon Fine Food Reviews dataset consists of reviews of fine foods from Amazon. <br/>
-Number of reviews                   : 568,454  <br/>
+The Amazon Fine Food Reviews dataset consists of **reviews of fine foods from Amazon**. <br/>
+Number of reviews                   : **568,454**  <br/>
 Number of users                     : 256,059  <br/>
 Number of products                  : 74,258  <br/>
 Timespan: Oct 1999                  : Oct 2012  <br/>
@@ -32,45 +32,50 @@ The code below would **clean the review text from html tags and punctuations and
 
 1. **Duplication of reviews** are found with same userid and timestamp (Cleaned).
 2. Found discrepancy issues with HelpfulnessDenominator (Cleaned).
-3. final.sqlite db is to be **used for further processing** such as Text to Vector operations.
+3. final.sqlite db is **to be used for further processing** such as Text to Vector operations.
 4. The preprocessing step is one time effort but the training & visualization steps require multiple runs. Hence, it is prudent to make reprocessing step independant, to avoid multiple runs.
 
 # Decision Trees on Amazon Reviews Dataset (Part II) #
 
 ## Data Source ##
 
-The preprocessing step has produced final.sqlite file after doing the data preparation & cleaning. The review text is now devoid of punctuations, HTML markups and stop words.
+**The preprocessing step has produced final.sqlite file after doing the data preparation & cleaning**. The review text is now devoid of punctuations, HTML markups and stop words.
 
 ## Objective ##
 
-To find optimal depth using GridSearchCV or iterated cross validation (ideal for one hyperparameter) on standardized feature vectors obtained from BoW, tf-idf, W2V and tf-idf weighted W2V featurizations. <br/> <br/>
-Find Precision, Recall, F1 Score, Confusion Matrix, Accuracy of 10-fold cross validation with GridSearch and Cross Validation with optimal Decision Tree model on vectorized input data, for BoW, tf-idf, W2V and tf-idf weighted W2V featurizations. TPR, TNR, FPR and FNR is calculated for all.
+**To find optimal depth using GridSearchCV or iterated cross validation (ideal for one hyperparameter)** on standardized feature vectors obtained from BoW, tf-idf, W2V and tf-idf weighted W2V featurizations. <br/> <br/>
+**Find Precision, Recall, F1 Score, Confusion Matrix, Accuracy of 10-fold cross validation with GridSearch and Cross Validation with optimal Decision Tree model on vectorized input data, for BoW, tf-idf, W2V and tf-idf weighted W2V featurizations**. TPR, TNR, FPR and FNR is calculated for all.
 
 ## At a glance ##
 
-Tail end data is taken after sorting the data, to conserve the timing info & time Series based cross validation is done, as it is time series data. The optimal depth is found using GridSearchCV & Cross Validator, by searching for a range of depth 1-25.<br/><br/>
+Tail end data is taken after sorting the data, to conserve the timing info & time Series based cross validation is done, as it is time series data. **The optimal depth is found using GridSearchCV & Cross Validator, by searching for a range of depth 1-25**.<br/><br/>
 The Precision, Recall, F1 Score, Confusion Matrix, Accuracy metrics are found out for all 4 featurizations.
 
 ## Custom Defined Functions ##
 
-2 user defined functions are written to<br/>
+2 user defined functions are written:<br/>
 a) GridSearchCV for Optimal Depth Estimation<br/>
 b) Compute DT Classifier Performance Metrics
 
 ## BoW ##
 
-BoW will result in a sparse matrix with huge number of features as it creates a feature for each unique word in the review.<br/><br/>
+BoW will result in a **sparse matrix with huge number of features** as it creates a feature for each unique word in the review.<br/><br/>
 For Binary BoW feature representation, CountVectorizer is declared as float, as the values can take non-integer values on further processing.
 
 ![1](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/1.PNG)
 
-![2](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/2.PNG)
+<p align="center">
+    <img src="https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/2.PNG)">
+</p>
 
 ![3](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/3.PNG)
 
-![4](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/4.PNG)
+<p align="center">
+    <img src="https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/4.PNG)
 
-![5](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/5.PNG)
+<p align="center">
+    <img src="https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/5.PNG">
+</p>
 
 ## tf-IDF ##
 
@@ -81,15 +86,21 @@ Performance metrics of optimal DT with tf-idf featurization is found.
 
 ![7](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/7.PNG)
 
-![8](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/8.PNG)
+<p align="center">
+    <img src="https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/8.PNG">
+</p>
 
 ![9](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/9.PNG)
 
 ![10](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/10.PNG)
 
-![11](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/11.PNG)
+<p align="center">
+    <img src="https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/11.PNG">
+</p>
 
-![12](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/12.PNG)
+<p align="center">
+    <img src="https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/12.PNG">
+</p>
 
 ## Word2Vec ##
 
@@ -100,27 +111,37 @@ Performance metrics of optimal DT with W2V featurization is found.
 
 ![14](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/14.PNG)
 
-![15](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/15.PNG)
+<p align="center">
+    <img src="https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/15.PNG">
+</p>
 
 ![16](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/16.PNG)
 
 ![17](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/17.PNG)
 
-![18](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/18.PNG)
+<p align="center">
+    <img src="https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/18.PNG">
+</p>
 
 ## TF-IDWeighted W2V ##
 
 ![19](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/19.PNG)
 
-![20](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/20.PNG)
+<p align="center">
+    <img src="https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/20.PNG">
+</p>
 
 ![21](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/21.PNG)
 
-![22](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/22.PNG)
+<p align="center">
+    <img src="https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/22.PNG">
+</p>
 
 ## Summary Statistics ##
 
-![23](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/23.PNG)
+<p align="center">
+    <img src="https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/23.PNG">
+</p>
 
 ## Observations ##
 

@@ -65,7 +65,7 @@ For Binary BoW feature representation, CountVectorizer is declared as float, as 
 ![1](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/1.PNG)
 
 <p align="center">
-    <img src="https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/2.PNG)">
+    <img src="https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/2.PNG">
 </p>
 
 ![3](https://github.com/AdroitAnandAI/Decision-Trees-Analysis-on-BoW-tf-idf-W2V-tf-idf-weighted-W2V/blob/master/images/3.PNG)
